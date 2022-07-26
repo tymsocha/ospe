@@ -46,4 +46,16 @@ class ApplicationTest {
         assertEquals(suma, 0);
     }
 
+    @Test
+    void checkIfSumOfTabWithOnlyDuplicatesEqualsZero() {
+        // Given
+        int[] tab = {1,1,1,1,1,1,1,1,1,1,1,1};
+
+        // When
+        int suma = application.suma_elem_unikalnych(tab);
+
+        // Then
+        assertEquals(suma, 0);
+    }
+
 }
