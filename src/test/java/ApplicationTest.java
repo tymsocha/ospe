@@ -34,4 +34,16 @@ class ApplicationTest {
         assertEquals(suma6, 30);
     }
 
+    @Test
+    void checkIfSumEqualsZeroIfTabIsEmpty() {
+        // Given
+        int[] tab = {};
+
+        // When
+        int suma = application.suma_elem_unikalnych(tab);
+
+        // Then
+        assertEquals(suma, 0);
+    }
+
 }
