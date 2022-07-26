@@ -3,35 +3,22 @@ public class Application {
 
     }
 
-    public int[] newTab(int[] oldTab, int newLenght) {
-        int[] newTab = new int[newLenght];
-
-        if (checkIfOldTabIsBiggerThanNew(oldTab.length, newLenght)) {
-            return writeRecordsToNewTabWithOutZeros(newTab, oldTab);
-        } else {
-            return writeRecordsToNewTabWithZeros(newTab, oldTab);
-        }
-    }
-
-    public boolean checkIfOldTabIsBiggerThanNew(int oldTabLength, int newTabLength) {
-        return oldTabLength >= newTabLength;
-    }
-
-    public int[] writeRecordsToNewTabWithZeros(int[] newTab, int[] oldTab) {
-        for (int i = 0; i < newTab.length; i++) {
-            if (i < oldTab.length) {
-                newTab[i] = oldTab[i];
-            } else {
-                newTab[i] = 0;
+    public int suma_elem_unikalnych (int tab[]) {
+        int suma=0;
+        if(tab.length>0) {
+            for(int i = 0; i < tab.length; i++) {
+                boolean unikalna = true;
+                for (int j = 0; j < tab.length; j++) {
+                    if (i != j) {
+                        if (tab[i] == tab[j]) {
+                            unikalna= false;
+                        }
+                    }
+                }
+                if(unikalna)
+                    suma+=tab[i];
             }
         }
-        return newTab;
-    }
-
-    public int[] writeRecordsToNewTabWithOutZeros(int[] newTab, int[] oldTab) {
-        for (int i = 0; i < newTab.length; i++) {
-            newTab[i] = oldTab[i];
-        }
-        return newTab;
+        return suma;
     }
 }
